@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Sale Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Sale List</h1>
+    <a href="/newsale">Create New Sale</a>
+    <a href="/">Product</a>
+    <a href="/sale">Client</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Sale ID</th>
+            <th>Client</th>
+            <th>Seller</th>
+            <th>Total</th>
+            <th>Creation_Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sale : ${listSales}">
+            <td th:text="${sale.saleid}">Sale ID</td>
+            <td th:text="${sale.client}">Client</td>
+            <td th:text="${sale.seller}">Seller</td>
+            <td th:text="${sale.total}">Total</td>
+            <td th:text="${sale.creation_date}">creation_date</td>
+            <td>
+
+                <a th:href="@{/edit2/{id}(id=${sale.saleid})}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
